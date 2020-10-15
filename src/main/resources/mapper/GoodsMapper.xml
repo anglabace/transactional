@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.transactional.demo.mapper.GoodsMapper">
+
+    <select id="selectOneGoods" parameterType="int" resultType="com.transactional.demo.pojo.Goods">
+        select * from goods where goodsId=#{goodsId}
+    </select>
+
+    <update id="updateOneGoodsStock" parameterType="com.transactional.demo.pojo.Goods">
+        UPDATE goods SET
+        stock = #{stock}
+        WHERE goodsId = #{goodsId}
+    </update>
+
+    <insert id="insertOneGoods" parameterType="com.transactional.demo.pojo.Goods" useGeneratedKeys="true" keyProperty="goodsId">
+        insert into goods(goodsName) values( #{goodsName})
+    </insert>
+
+
+</mapper>
